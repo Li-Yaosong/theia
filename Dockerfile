@@ -18,10 +18,10 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /theia
 
 RUN yarn
-RUN yarn theia build
+RUN yarn browser build
 
 FROM node:18
 COPY --from=build /theia /theia
 WORKDIR /theia
-CMD ["yarn", "theia", "start", "/home/project", "--hostname=0.0.0.0"]
+CMD ["yarn", "browser", "start", "--hostname=0.0.0.0"]
 EXPOSE 3000
