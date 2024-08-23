@@ -10,7 +10,11 @@ RUN git checkout --end-of-options v${VERSION}
 FROM node:18 AS build
 COPY --from=git /app/theia /theia
 
-RUN apt-get update && apt-get install -y libx11-dev libxkbfile-dev
+RUN apt-get update && apt-get install -y \
+    libx11-dev \
+    libxkbfile-dev \
+    libsecret-1-dev
+
 WORKDIR /theia
 
 RUN yarn
