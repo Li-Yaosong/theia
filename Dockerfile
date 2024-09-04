@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /theia
 
 RUN yarn
+RUN yarn download:plugins
 RUN yarn browser build
 
 FROM node:18
